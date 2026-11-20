@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>314 畢業紀念冊 · 專屬回憶庫</title>
+  <style>
+    @import url('https://googleapis.com');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #1a1a2e, #16213e, #2b2e4a, #4a3f6b);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      color: #ffffff;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* 背景裝飾光暈 */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      opacity: 0.6;
+    }
+    .circle-1 {
+      width: 220px;
+      height: 220px;
+      background: #6c5ce7;
+      top: 10%;
+      left: -40px;
+    }
+    .circle-2 {
+      width: 250px;
+      height: 250px;
+      background: #00cec9;
+      bottom: 10%;
+      right: -50px;
+    }
+
+    /* 毛玻璃主卡片 */
+    .glass-card {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 28px;
+      padding: 40px 28px;
+      width: 100%;
+      max-width: 370px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      animation: floatUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes floatUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.16);
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      color: #a29bfe;
+      font-weight: 700;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .icon-box {
+      font-size: 42px;
+      margin-bottom: 12px;
+      display: inline-block;
+      animation: pulse 2.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      background: linear-gradient(to right, #ffffff, #dfe6e9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 18px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px 18px;
+      font-size: 16px;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      outline: none;
+      text-align: center;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    input:focus {
+      border-color: #a29bfe;
+      background: rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 18px rgba(162, 155, 254, 0.35);
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #ffffff;
+      background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:active {
+      transform: scale(0.97);
+      box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
+    }
+
+    .footer-note {
+      margin-top: 22px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="circle circle-1"></div>
+  <div class="circle circle-2"></div>
+
+  <div class="glass-card">
+    <div class="badge">CLASS 314 · MEMORIES</div>
+    <div class="icon-box">🎞️</div>
+    <h1>314 專屬時光膠囊</h1>
+    <p class="subtitle">輸入我們的通關密語<br>解鎖九族、畢旅與露營的共同回憶</p>
+
+    <div class="input-group">
+      <input type="text" id="pwd" placeholder="請輸入通關密碼..." autocomplete="off" onkeypress="handleKeyPress(event)">
+    </div>
+    <button id="btn" onclick="checkPwd()">開啟回憶相簿</button>
+
+    <div class="footer-note">✦ 居仁國中 314 畢業紀念專屬 ✦</div>
+  </div>
+
+  <script>
+    function handleKeyPress(e) {
+      if (e.key === 'Enter') {
+        checkPwd();
+      }
+    }
+
+    function checkPwd() {
+      const input = document.getElementById('pwd').value.trim();
+      const btn = document.getElementById('btn');
+      const driveUrl = "https://google.com";
+      const songUrl = "https://youtube.com";
+
+      btn.innerText = "驗證中...";
+      btn.style.opacity = "0.8";
+
+      setTimeout(() => {
+        if (input.toLowerCase() === "chill guy") {
+          window.location.href = driveUrl;
+        } else {
+          window.location.href = songUrl;
+        }
+      }, 450);
+    }
+  </script>
+</body>
+</html>
